@@ -1,0 +1,212 @@
+/* General Styles */
+body {
+    font-family: 'Karla', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.section-spacing {
+    padding: 80px 0;
+}
+
+/* Navigation */
+.navbar {
+    padding: 20px 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand img {
+    height: 40px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #333;
+    font-weight: 600;
+}
+
+.btn-nav {
+    margin-left: 15px;
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: #f8f9fa;
+    padding: 100px 0;
+}
+
+.hero-welcome-message h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-welcome-message h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.hero-img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Signup Form */
+.signup-form {
+    margin-top: 30px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input {
+    padding-right: 150px;
+}
+
+.input-wrapper button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+#mc-error, #mc-success {
+    display: none;
+    margin-top: 10px;
+}
+
+/* Features Section */
+.features {
+    background-color: #fff;
+}
+
+.features-list li {
+    margin-bottom: 30px;
+}
+
+.features-list img {
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+/* More Features Section */
+.features-more {
+    background-color: #f8f9fa;
+}
+
+.features-more-wrapper {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    height: 100%;
+}
+
+.features-more-wrapper img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* CTA Section */
+.cta {
+    background-color: #007bff;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta .section-header h2, .cta .section-header h3 {
+    color: #fff;
+}
+
+.cta-button {
+    text-align: right;
+}
+
+/* Footer */
+.site-footer {
+    background-color: #333;
+    color: #fff;
+}
+
+.site-footer img {
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.terms-privacy, .social {
+    list-style-type: none;
+    padding: 0;
+}
+
+.terms-privacy li, .social li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.terms-privacy a, .social a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Modal */
+.contact-modal .modal-content {
+    border-radius: 0;
+}
+
+.contact-modal .modal-header {
+    border-bottom: none;
+}
+
+.contact-modal .modal-body {
+    padding: 30px;
+}
+
+.contact-form-success {
+    display: none;
+    color: #28a745;
+    margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .hero-welcome-message {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .cta-button {
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 40px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.fadeInUp {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* SVG Animation */
+.curve path {
+    animation: moveUpDown 3s ease-in-out infinite alternate;
+}
+
+@keyframes moveUpDown {
+    from { transform: translateY(0); }
+    to { transform: translateY(20px); }
+}
+
+#glowPath {
+    filter: url(#glow);
+}
