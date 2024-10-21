@@ -1,3 +1,5 @@
+import { backend } from 'declarations/backend';
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -10,14 +12,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Form submission handling
-document.getElementById('mc-form').addEventListener('submit', function(e) {
+document.getElementById('mc-form').addEventListener('submit', async function(e) {
     e.preventDefault();
     const email = document.getElementById('mc-email').value;
     if (email) {
-        // Here you would typically send the email to your backend
-        console.log('Email submitted:', email);
-        document.getElementById('mc-success').style.display = 'block';
-        document.getElementById('mc-error').style.display = 'none';
+        try {
+            await backend.subscribeToWaitingList(email);
+            document.getElementById('mc-success').style.display = 'block';
+            document.getElementById('mc-error').style.display = 'none';
+        } catch (error) {
+            console.error('Error subscribing to waiting list:', error);
+            document.getElementById('mc-error').style.display = 'block';
+            document.getElementById('mc-success').style.display = 'none';
+        }
     } else {
         document.getElementById('mc-error').style.display = 'block';
         document.getElementById('mc-success').style.display = 'none';
@@ -25,7 +32,7 @@ document.getElementById('mc-form').addEventListener('submit', function(e) {
 });
 
 // Contact form handling
-document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+document.querySelector('.contact-form form').addEventListener('submit', async function(e) {
     e.preventDefault();
     const name = document.getElementById('contact-name').value;
     const email = document.getElementById('contact-email').value;
@@ -33,9 +40,13 @@ document.querySelector('.contact-form form').addEventListener('submit', function
     const antispam = document.getElementById('contact-antispam').value;
 
     if (name && email && message && antispam === '12') {
-        // Here you would typically send the form data to your backend
-        console.log('Form submitted:', { name, email, message });
-        document.querySelector('.contact-form-success').style.display = 'block';
+        try {
+            await backend.submitContactForm({ name, email, message });
+            document.querySelector('.contact-form-success').style.display = 'block';
+        } catch (error) {
+            console.error('Error submitting contact form:', error);
+            alert('An error occurred. Please try again later.');
+        }
     } else {
         alert('Please fill all fields correctly.');
     }
